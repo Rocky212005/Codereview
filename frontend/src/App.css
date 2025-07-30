@@ -61,3 +61,28 @@ main .right {
   font-size: 1.5rem;
   overflow: auto;
 }
+
+/* ======= Responsive Breakpoints ======= */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  main .left,
+  main .right {
+    flex-basis: 100%;
+  }
+
+  main .right {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  main .left .review {
+    padding: 0.4rem 1.5rem;
+    font-size: 0.9rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+}
