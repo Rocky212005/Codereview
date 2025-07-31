@@ -24,24 +24,10 @@ function App() {
   }
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#1a1a1a',
-      color: 'white',
-      padding: '24px',
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '24px'
-    }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <h2 style={{ fontSize: '20px', fontWeight: '600' }}>Code Editor</h2>
-        <div style={{
-          borderRadius: '10px',
-          border: '1px solid #444',
-          backgroundColor: '#2a2a2a',
-          overflow: 'hidden',
-          boxShadow: '0 0 10px rgba(0,0,0,0.5)'
-        }}>
+    <div className="app-container">
+      <div className="editor-container">
+        <h2 className="section-title">Code Editor</h2>
+        <div className="editor-box">
           <Editor
             value={code}
             onValueChange={setCode}
@@ -58,33 +44,14 @@ function App() {
         </div>
         <button
           onClick={reviewCode}
-          style={{
-            marginTop: '8px',
-            backgroundColor: '#2563eb',
-            color: 'white',
-            fontWeight: 'bold',
-            padding: '10px 16px',
-            borderRadius: '10px',
-            border: 'none',
-            cursor: 'pointer',
-            transition: 'background-color 0.2s ease'
-          }}
-          onMouseOver={e => e.target.style.backgroundColor = '#1e40af'}
-          onMouseOut={e => e.target.style.backgroundColor = '#2563eb'}
+          className="review-btn"
         >
           Review Code
         </button>
       </div>
-      <div>
-        <h2 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>AI Review Output</h2>
-        <div style={{
-          backgroundColor: '#2a2a2a',
-          padding: '16px',
-          borderRadius: '10px',
-          border: '1px solid #444',
-          overflow: 'auto',
-          maxHeight: '500px'
-        }}>
+      <div className="review-container">
+        <h2 className="section-title">AI Review Output</h2>
+        <div className="review-box">
           <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>
         </div>
       </div>
