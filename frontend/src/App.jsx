@@ -3,16 +3,18 @@ import "prismjs/themes/prism-tomorrow.css"
 import Editor from "react-simple-code-editor"
 import prism from "prismjs"
 import Markdown from "react-markdown"
-import rehypeHighlight from "rehype-highlight"
-import "highlight.js/styles/github-dark.css"
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github-dark.css";
 import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [code, setCode] = useState(`function sum() {
-  return 1 + 1;
+  const [ count, setCount ] = useState(0)
+  const [ code, setCode ] = useState(` function sum() {
+  return 1 + 1
 }`)
-  const [review, setReview] = useState("")
+
+  const [ review, setReview ] = useState(``)
 
   useEffect(() => {
     prism.highlightAll()
@@ -24,39 +26,41 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <div className="editor-container">
-        <h2 className="section-title">Code Editor</h2>
-        <div className="editor-box">
-          <Editor
-            value={code}
-            onValueChange={setCode}
-            highlight={code => prism.highlight(code, prism.languages.javascript, "javascript")}
-            padding={20}
-            style={{
-              fontFamily: 'Fira Code, monospace',
-              fontSize: 16,
-              minHeight: '400px',
-              color: 'white',
-              backgroundColor: '#2a2a2a'
-            }}
-          />
+    <>
+      <main>
+        <div className="left">
+          <div className="code">
+            <Editor
+              value={code}
+              onValueChange={code => setCode(code)}
+              highlight={code => prism.highlight(code, prism.languages.javascript, "javascript")}
+              padding={10}
+              style={{
+                fontFamily: '"Fira code", "Fira Mono", monospace',
+                fontSize: 16,
+                border: "1px solid #ddd",
+                borderRadius: "5px",
+                height: "100%",
+                width: "100%"
+              }}
+            />
+          </div>
+          <div
+            onClick={reviewCode}
+            className="review">Review</div>
         </div>
-        <button
-          onClick={reviewCode}
-          className="review-btn"
-        >
-          Review Code
-        </button>
-      </div>
-      <div className="review-container">
-        <h2 className="section-title">AI Review Output</h2>
-        <div className="review-box">
-          <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>
+        <div className="right">
+          <Markdown
+
+            rehypePlugins={[ rehypeHighlight ]}
+
+          >{review}</Markdown>
         </div>
-      </div>
-    </div>
+      </main>
+    </>
   )
 }
 
-export default App
+
+
+export default App  create same batter ui for this page
