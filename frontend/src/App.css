@@ -1,58 +1,118 @@
-.app-container {
-  min-height: 100vh;
-  background-color: #1a1a1a;
-  color: white;
-  padding: 24px;
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Fira Code', monospace;
+  background-color: #0d1117;
+  color: #f5f5f5;
+}
+
+/* Layout */
+main {
   display: flex;
   flex-direction: row;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  height: 100%;
+  width: 100%;
 }
 
-.editor-container,
-.review-container {
-  flex: 1 1 100%;
+/* Editor panel */
+main .left {
+  flex: 1;
+  background-color: #161b22;
+  border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.editor-box,
-.review-box {
-  border-radius: 10px;
-  border: 1px solid #444;
-  background-color: #2a2a2a;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  padding: 16px;
-  max-height: 500px;
-  overflow: auto;
 }
 
-.section-title {
-  font-size: 20px;
+.left .code {
+  flex: 1;
+  border-radius: 0.8rem;
+  background-color: #0d1117;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Button */
+main .left .review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #3b82f6;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
   font-weight: 600;
-}
-
-.review-btn {
-  margin-top: 8px;
-  background-color: #2563eb;
-  color: white;
-  font-weight: bold;
-  padding: 10px 16px;
-  border-radius: 10px;
-  border: none;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  user-select: none;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.review-btn:hover {
-  background-color: #1e40af;
+main .left .review:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  cursor: pointer;
 }
 
-@media (min-width: 768px) {
-  .editor-container,
-  .review-container {
-    flex: 1 1 48%;
+/* Review panel */
+main .right {
+  flex: 1;
+  background-color: #21262d;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  font-size: 1rem;
+  overflow-y: auto;
+}
+
+/* Scrollbar Styling */
+.code::-webkit-scrollbar,
+.right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.code::-webkit-scrollbar-thumb,
+.right::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+/* Responsive (mobile/tablet) */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
   }
+
+
+  main .right {
+    width: 50vh;
+    height: 50vh;
+  
+  }
+
+  main .left{
+    width: 50vh;
+    height: 80vh;
+  }
+
+  main .left .review {
+    position: static;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+
+    
+  }
+
 }

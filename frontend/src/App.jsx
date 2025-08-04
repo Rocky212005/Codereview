@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import "prismjs/themes/prism-tomorrow.css"
 import Editor from "react-simple-code-editor"
@@ -21,7 +22,7 @@ function App() {
   }, [])
 
   async function reviewCode() {
-    const response = await axios.post('https://codereview-backend-zq9r.onrender.com/ai/get-review', { code })
+    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
     setReview(response.data)
   }
 
@@ -63,4 +64,4 @@ function App() {
 
 
 
-export default App  create same batter ui for this page
+export default App
