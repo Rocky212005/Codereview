@@ -21,7 +21,7 @@ A modern code-review web application powered by Next.js and deployed on Vercel.
 | Technology  | Purpose |
 |-------------|---------|
 | **Next.js** | React-based web framework powering the frontend/backend |
-| **TypeScript** | Type safety throughout the codebase |
+| **Javascript** | Type safety throughout the codebase |
 | **Vercel** | CI/CD, hosting, and automatic deployments |
 | **...**     | (Add any additional backend, database, or API services) |
 
