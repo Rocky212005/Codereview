@@ -1,68 +1,124 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* ================ GLOBAL STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: "Inter", sans-serif;
+  background: #f3f4f6;
+}
+
+/* Container */
+.page-container {
   min-height: 100vh;
+  background: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Main Grid */
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+@media (min-width: 1024px) {
+  .page-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card */
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-dark {
+  background: black;
+  color: white;
+}
+
+.card-light {
+  background: white;
+  color: black;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Title */
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Code box */
+.code-box {
+  height: 430px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px;
+  overflow-y: auto;
+  font-size: 14px;
+  font-family: monospace;
+  color: #eaeaea;
+}
+
+.code-box-light {
+  background: #e5e7eb;
+  color: #111;
+  height: 300px;
+}
+
+/* Button */
+.review-btn {
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 16px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background: #4f46e5;
+  color: white;
+  transition: 0.25s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.review-btn:hover {
+  background: #3b36c4;
+}
+
+/* Issues Section */
+.issues-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+.issue-item {
+  display: flex;
+  gap: 10px;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.issue-text {
+  color: #1f2937;
+  font-size: 14px;
 }

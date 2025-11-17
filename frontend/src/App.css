@@ -1,118 +1,96 @@
-/* Reset and base */
+/* ================= GLOBAL RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body, #root {
-  height: 100%;
-  width: 100%;
-  font-family: 'Fira Code', monospace;
-  background-color: #0d1117;
-  color: #f5f5f5;
+body {
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #fff;
 }
 
-/* Layout */
+/* ================= MAIN LAYOUT ================= */
 main {
   display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  height: 100%;
-  width: 100%;
+  gap: 20px;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto; /* Single global scroll */
 }
 
-/* Editor panel */
-main .left {
+.left, .right {
   flex: 1;
-  background-color: #161b22;
-  border-radius: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  background: #0f0f0f;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  /* Remove internal scroll */
+  overflow: visible;
+}
+
+/* ================= LEFT SIDE ================= */
+.code {
+  flex: 1;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
   overflow: hidden;
 }
 
-.left .code {
-  flex: 1;
-  border-radius: 0.8rem;
-  background-color: #0d1117;
-  padding: 1rem;
-  overflow-y: auto;
-}
-
-/* Button */
-main .left .review {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background-color: #3b82f6;
-  color: #fff;
-  padding: 0.6rem 1.5rem;
-  font-weight: 600;
-  font-size: 1rem;
+/* Review Button */
+.review {
+  background: #4f46e5;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 8px;
   cursor: pointer;
-  user-select: none;
-  border: none;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: 0.3s;
 }
 
-main .left .review:hover {
-  background-color: #2563eb;
-  transform: translateY(-1px);
-  cursor: pointer;
+.review:hover {
+  background: #3b36c4;
 }
 
-/* Review panel */
-main .right {
+/* ================= RIGHT SIDE ================= */
+.right {
   flex: 1;
-  background-color: #21262d;
-  border-radius: 0.8rem;
-  padding: 1.5rem;
-  font-size: 1rem;
+  background: #0f0f0f;
+  padding: 20px;
+  border-radius: 8px;
   overflow-y: auto;
+  border: 1px solid #333;
 }
 
-/* Scrollbar Styling */
-.code::-webkit-scrollbar,
-.right::-webkit-scrollbar {
-  width: 8px;
+.right h1,
+.right h2,
+.right h3,
+.right p,
+.right pre {
+  color: #e0e0e0;
 }
 
-.code::-webkit-scrollbar-thumb,
-.right::-webkit-scrollbar-thumb {
-  background: #4b5563;
-  border-radius: 4px;
+/* Markdown styling */
+.right pre {
+  background: #1e1e1e !important;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #333;
 }
 
-/* Responsive (mobile/tablet) */
-@media (max-width: 768px) {
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
   main {
     flex-direction: column;
-    padding: 1rem;
+    overflow-y: auto;
   }
 
-
-  main .right {
-    width: 50vh;
-    height: 50vh;
-  
-  }
-
-  main .left{
-    width: 50vh;
-    height: 80vh;
-  }
-
-  main .left .review {
-    position: static;
-    margin-top: 1rem;
+  .left, .right {
     width: 100%;
-    text-align: center;
-
-    
   }
-
 }
