@@ -9,6 +9,7 @@ import "highlight.js/styles/github-dark.css";
 import axios from 'axios'
 import './App.css'
 
+
 function App() {
   const [ count, setCount ] = useState(0)
   const [ code, setCode ] = useState(` function sum() {
@@ -21,8 +22,11 @@ function App() {
     prism.highlightAll()
   }, [])
 
-  async function reviewCode() {
-    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+   async function reviewCode() {
+  //   const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+  
+    // const response = await axios.post('https://codereview.vercel.app/ai/get-review', { code })
+    const response = await axios.post('https://codereview-backend-zq9r.onrender.com/ai/get-review', { code })
     setReview(response.data)
   }
 
@@ -61,7 +65,4 @@ function App() {
     </>
   )
 }
-
-
-
-export default App
+export default App;
